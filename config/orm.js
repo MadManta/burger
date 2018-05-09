@@ -1,5 +1,15 @@
 var connection = require("../config/connection.js");
 
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
 function objToSql(ob) {
     var arr = [];
 
@@ -48,7 +58,7 @@ var orm = {
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
         queryString += " SET ";
-        queryString += objtoSql(objColVals);
+        queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 
