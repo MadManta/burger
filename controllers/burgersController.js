@@ -3,13 +3,18 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
+// router.get("/", function (req, res) {
+//         var hbsObject = {
+//             burger: data
+//         };
+//         console.log(hbsObject);
+// });
+
 router.get("/", function (req, res) {
+    console.log("hitting burgersController's router.get");
     burger.all(function(data) {
-        var hbsObject = {
-            burger: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject);
+        console.log("hitting burgersController's router.get TWICE")
+        res.render("index");
     });
 });
 
@@ -23,7 +28,7 @@ router.post("/api/burgers", function(req, res) {
     });
 });
 
-router.put("/api/burger/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);

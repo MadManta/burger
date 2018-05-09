@@ -1,18 +1,30 @@
 var orm = require("../config/orm.js");
 
+console.log("HITTING MODEL");
+
 var burger = {
+
     all:function(cb) {
-        orm.selectAll("burger", function(res) {
-            cb(res);
-        });
+        orm.selectAll("burgers", function(res) {
+            cb([]);
+        })
+
     },
+
+    // all:function(cb) {
+    //     console.log("hitting model.burger.all");
+    //     orm.selectAll("burger", function(res) {
+    //         console.log("hitting model.burger.all.orm.selectAll")
+    //         cb(res);
+    //     });
+    // },
     create: function(cols, vals, cb) {
-        orm.insertOne("burger", cols, vals, function(res) {
+        orm.insertOne("burgers", cols, vals, function(res) {
             cb(res);
         });
     },
     update: function(objColsVals, condition, cb) {
-        orm.updateOne("burger", objColVals, condition, function(res) {
+        orm.updateOne("burgers", objColVals, condition, function(res) {
             cb(res);
         });
     }
