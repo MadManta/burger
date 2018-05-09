@@ -1,22 +1,50 @@
+<br><br>
+
+
+<div class="uk-container uk-align-center main">
+
 <h1>eat da burgo</h1>
+<img src="assets/images/burger.jpg" width="150"><br>
 
-<h2>uneaten</h2>
+<table width="100%">
+<thead>
+  <tr>
+    <th>uneaten</th>
+    <th>eaten</th>
+  </tr>
+</thead>
+<tr>
+  <td width="50%">
+      {{#each burger}}
+        {{#unless devoured}}
+          {{> burgers/burg-block devoured=true}}
+        {{/unless}}
+      {{/each}}
 
-<ul>
-  {{#each burger}}
-    {{#unless devoured}}
-      {{> burgers/burg-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+  </td>
+
+  <td width="50%">
+      {{#each burger}}
+        {{#if devoured}}
+          {{> burgers/burg-block devoured=false}}
+        {{/if}}
+      {{/each}}
+  </td>
+</tr>
+
+</table>
+
+
 
 
 <h2>Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <label for="bu">Burger Name:</label>
+    <input type="text" id="bu" name="name">
   </div>
-  <button type="add">add burger</button>
+  <button id="add">add burger</button>
 </form>
+
+</div>

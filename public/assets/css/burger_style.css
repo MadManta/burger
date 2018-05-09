@@ -1,0 +1,17 @@
+body {
+    background-color:#F5E36F;
+    min-height:100vh;
+}
+
+.main {
+    background-color:#E3DAA2;
+    border-radius:10px;
+    padding:20px;
+    border:2px solid #D3BB21;
+    text-align:center;
+    width:650px;
+}
+
+.devoured {
+    border-radius:50px;
+}

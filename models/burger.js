@@ -6,18 +6,9 @@ var burger = {
 
     all:function(cb) {
         orm.selectAll("burgers", function(res) {
-            cb([]);
-        })
-
+            cb(res);
+        });
     },
-
-    // all:function(cb) {
-    //     console.log("hitting model.burger.all");
-    //     orm.selectAll("burger", function(res) {
-    //         console.log("hitting model.burger.all.orm.selectAll")
-    //         cb(res);
-    //     });
-    // },
     create: function(cols, vals, cb) {
         orm.insertOne("burgers", cols, vals, function(res) {
             cb(res);
