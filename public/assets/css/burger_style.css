@@ -12,6 +12,11 @@ body {
     width:650px;
 }
 
+.devour {
+    border-radius:50px;
+}
+
 .devoured {
     border-radius:50px;
+    color:lightgray;
 }

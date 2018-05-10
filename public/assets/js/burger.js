@@ -23,26 +23,52 @@ $(function() {
   });
 
 
-    $(".eatthis").on("click", function(event) {
-      var id = $(this).data("id");
-      // var newdevour = $(this).data("newdevour");
-  
-      var newDevourState = {
-        devoured: 1
-      };
-  
-      // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        data: newDevourState
-      }).then(
-        function() {
-          console.log("changed eaten status to", newdevour);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
+  $(".eatthis").on("click", function(event) {
+    event.preventDefault();
+    var id = $(this).data("id");
+    var newSleep = $(this).data("newsleep");
+
+    var newSleepState = {
+      devoured: newSleep
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: newSleepState
+    }).then(
+      function() {
+        console.log("changed status to", newSleep);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+  // $(".eatthis").on("click", function(event) {
+  //   event.preventDefault();
+  //   var id = $(this).data("id");
+  //   var newStatus = $(this).data("newstatus");
+
+  //   var newStatusState = {
+  //     devoured: newStatus
+  //   };
+
+  //   // Send the PUT request.
+  //   $.ajax("/api/burgers/" + id, {
+  //     type: "PUT",
+  //     data: newStatusState
+  //   }).then(
+  //     function() {
+  //       console.log("changed sleep to", newStatus);
+  //       // Reload the page to get the updated list
+  //       location.reload();
+  //     }
+  //   );
+  // });
+
+
   
     
   });

@@ -1,8 +1,8 @@
 
 	{{burger_name}}
 
-	<button class="devoured eatthis" data-id="{{id}}" data-newdevour="{{devoured}}">
+	{{#if devoured}}<button class="eatthis devour" data-id="{{id}}" data-newsleep="{{sleep}}">
 		<i class="fas fa-utensils"></i>
-	</button>
+	</button>{{else}}<button type="button" class="devoured" disabled><i class="fas fa-utensils"></i></button>{{/if}}
 	<br>
 
