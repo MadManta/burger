@@ -20,6 +20,11 @@ var burger = {
             console.log(objColVals);
             cb(res);
         });
+    },
+    delete: function(cb) {
+        orm.clearAll("burgers", function(res) {
+            cb(res);
+        })
     }
 };
 

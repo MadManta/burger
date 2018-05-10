@@ -41,6 +41,16 @@ router.put("/api/burgers/:id", function(req, res) {
         }
     });
 });
+
+router.delete("/api/burgers/", function(req, res) {
+    burger.delete(function(data) {
+        var hbsObject = {
+            burger: data
+        };
+        console.log(hbsObject);
+        res.render("index", hbsObject);
+    });
+});
   
 
 module.exports = router;

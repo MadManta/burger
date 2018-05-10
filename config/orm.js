@@ -70,6 +70,15 @@ var orm = {
             }
             cb(result);
         });
+    },
+    clearAll: function(tableInput, cb) {
+        var queryString = "DELETE FROM " + tableInput + " WHERE devoured = '1';";
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err
+            };
+            cb(result);
+        });
     }
 };
 

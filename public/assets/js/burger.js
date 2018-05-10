@@ -46,30 +46,18 @@ $(function() {
   });
 
 
-  // $(".eatthis").on("click", function(event) {
-  //   event.preventDefault();
-  //   var id = $(this).data("id");
-  //   var newStatus = $(this).data("newstatus");
-
-  //   var newStatusState = {
-  //     devoured: newStatus
-  //   };
-
-  //   // Send the PUT request.
-  //   $.ajax("/api/burgers/" + id, {
-  //     type: "PUT",
-  //     data: newStatusState
-  //   }).then(
-  //     function() {
-  //       console.log("changed sleep to", newStatus);
-  //       // Reload the page to get the updated list
-  //       location.reload();
-  //     }
-  //   );
-  // });
-
-
-  
+  $("#clear").on("click", function(event) {
+    event.preventDefault();
+    $.ajax("/api/burgers", {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("cleared eaten burgs");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
     
   });
   
